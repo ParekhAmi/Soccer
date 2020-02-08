@@ -1,120 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true"
-    android:background="@color/colorGrey"
-    android:orientation="vertical"
+    android:background="@color/colorNavDrawerBackground"
+    android:fillViewport="true"
     tools:context=".Create_League">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/createLeagueHeader"
+            android:id="@+id/League_Functions"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:gravity="center"
             android:text="Create League"
-            android:background="@color/splash"
+            android:background="@color/colorPrimaryLight"
             android:textColor="@android:color/white"
-            android:textSize="35dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/createLeague_img"
-            tools:layout_editor_absoluteY="16dp"/>
+            android:textSize="35dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:id="@+id/create_league_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:paddingBottom="120dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/create_league_cardview"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:cardCornerRadius="60dp"
+                app:cardBackgroundColor="@android:color/white"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/League_Functions"
+                app:layout_constraintBottom_toTopOf="@id/create_league_name_layout"
+                app:strokeWidth="2dp"
+                app:strokeColor="@android:color/darker_gray">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/user"
+                    android:id="@+id/create_league_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
+
+            </com.google.android.material.card.MaterialCardView>
 
 
-    <ImageView
-        android:id="@+id/createLeague_img"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/leagueName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/createLeagueHeader"
-        tools:src="@tools:sample/avatars"/>
 
-    <TextView
-        android:id="@+id/leagueName"
-        android:layout_width="fill_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/create_league_name_layout"
+        style="@style/TextInputLayoutStyleVarient"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:gravity="left"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_league_cardview"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:counterTextColor="@color/colorPrimaryLight">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/create_league_name_edt_txt"
+        style="@style/TextInputEditTextStyleVarient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="League Name"
-        app:layout_constraintBottom_toTopOf="@+id/noOfTeams"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createLeague_img"/>
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:textColorHint="@color/colorPrimaryLight"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/noOfTeams"
-        android:layout_width="fill_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/create_league_no_of_teams_layout"
+        style="@style/TextInputLayoutStyleVarient"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="No. Of Teams"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/create_new_league_btn"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leagueName" />
+        app:layout_constraintTop_toBottomOf="@id/create_league_name_layout"
+        app:counterEnabled="true"
+        app:counterMaxLength="3"
+        app:counterTextColor="@color/colorPrimaryLight">
 
-    <Button
-        android:id="@+id/create_new_league_btn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Create New League"
-        android:layout_marginTop="220dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/colorNormalButton"
-        android:textColor="@color/colorText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noOfTeams"
-        app:layout_constraintBottom_toTopOf="@+id/cancel_btn"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/create_league_no_of_teams_edt_txt"
+            style="@style/TextInputEditTextStyleVarient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="No. Of Teams"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textColorHint="@color/colorPrimaryLight"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/cancel_btn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Cancel"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorNormalButton"
-        android:textColor="@color/colorText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_new_league_btn" />
+ </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/back_btn"
-        android:layout_width="60dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="320dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/splash"
-        android:drawableLeft="@drawable/ic_action_name"
-        app:layout_constraintBottom_toTopOf="16dp"
-        app:layout_constraintEnd_toEndOf="@id/createLeagueHeader"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_new_league_btn"
+                style="@style/NormalButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="30pt"
+                android:layout_margin="16dp"
+                android:text="Create New League"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/create_league_no_of_teams_edt_txt"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_league_cancel_btn"
+                style="@style/NormalButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="30pt"
+                android:layout_margin="16dp"
+                android:text="Cancel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/create_new_league_btn"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

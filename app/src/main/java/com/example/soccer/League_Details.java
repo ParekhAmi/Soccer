@@ -15,12 +15,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class League_Details extends Fragment {
 
     public NavController navController;
     private Context context;
+
+    TextView League_Functions;
 
     Button add_team_btn,remove_team_btn,team_list_btn,upcoming_matches_btn,schedule_match_btn,played_match_btn;
 

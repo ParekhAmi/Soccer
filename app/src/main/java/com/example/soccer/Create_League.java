@@ -22,7 +22,7 @@ public class Create_League extends Fragment implements View.OnClickListener{
     public NavController navController;
     private Context context;
 
-    Button create_new_league_btn,cancel_btn;
+    Button create_new_league_btn,create_league_cancel_btn;
 
 
     @Override
@@ -39,10 +39,10 @@ public class Create_League extends Fragment implements View.OnClickListener{
         navController = Navigation.findNavController(getActivity(),R.id.host_fragment);
         context = getActivity().getApplicationContext();
         create_new_league_btn = view.findViewById(R.id.create_new_league_btn);
-        cancel_btn = view.findViewById(R.id.cancel_btn);
+        create_league_cancel_btn = view.findViewById(R.id.create_league_cancel_btn);
 
         create_new_league_btn.setOnClickListener(this);
-        cancel_btn.setOnClickListener(this);
+        create_league_cancel_btn.setOnClickListener(this);
 
     }
 
@@ -50,7 +50,7 @@ public class Create_League extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
 
         if(view==create_new_league_btn){
-            navController.navigate(R.id.recycle_leaguelist);
+            navController.navigate(R.id.leagues_recycler_view);
         }
     }
 }

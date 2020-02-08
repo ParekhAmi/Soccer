@@ -1,42 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@android:color/darker_gray">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
-        app:cardCornerRadius="15dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp">
 
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardElevation="5dp">
-
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+
+
             <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:gravity="center"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:id="@+id/league_img"/>
+                android:id="@+id/item_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="16dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <TextView
-                android:id="@+id/league_name"
-                android:layout_width="wrap_content"
+                android:id="@+id/item_name"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="71dp"
-                android:text="League Name"
-                android:textSize="28sp" />
-        </RelativeLayout>
+                android:elevation="16dp"
+                android:padding="16dp"
+                android:text="Item Name"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/item_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-    </androidx.cardview.widget.CardView>
-
-</RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
